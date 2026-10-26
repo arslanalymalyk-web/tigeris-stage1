@@ -2,9 +2,9 @@
 
 Statuses: **CONFIRMED** (by product owner) · **PROVISIONAL** (accepted for now, may change) · **PROPOSED** (recommended; needs confirmation) · **OPEN** (no answer; do not choose silently).
 
-Rule for builders: you may build on CONFIRMED and PROVISIONAL items. If work depends on a PROPOSED or OPEN item, stop and ask. PROVISIONAL items may change later, so keep them easy to replace (one config value, one token file, one service interface).
+Rule for builders: if work depends on a PROPOSED or OPEN item, stop and ask.
 
-## A. Product owner decisions (updated 26 Oct 2026)
+## A. Product owner decisions (26 Oct 2026)
 
 | ID | Decision | Status |
 |---|---|---|
@@ -14,13 +14,13 @@ Rule for builders: you may build on CONFIRMED and PROVISIONAL items. If work dep
 | D-04 | Use the Foundation Decisions palette and fonts (ivory/emerald/sage/gold; Source Serif 4 + Inter). | PROVISIONAL |
 | D-05 | Include a small Hormuz map with one illustrative moving ship in Stage 1. All simulated movement is labelled SYNTHETIC or ILLUSTRATIVE. | CONFIRMED |
 | D-06 | Trucks and live data feeds are deferred. | CONFIRMED |
-| D-07 | Map: a **polished, simplified Hormuz schematic**, drawn for TIGERIS and bundled locally as SVG. Labelled ILLUSTRATIVE ("schematic — not to scale, not for navigation"). Not traced from any copyrighted or licensed map. No tile server or map service. Ship movement on it is clearly labelled SYNTHETIC. | PROVISIONAL |
-| D-08 | Stack: **Vite + React + TypeScript, front end only.** No backend, database or server. Vitest for unit tests; Playwright for journey/accessibility checks. | PROVISIONAL |
-| D-09 | **No external AI calls** in Stage 1. Narrative text is fixed, labelled templates. | PROVISIONAL |
-| D-10 | The Hormuz signal is a **generic synthetic disruption** with **no real event date** and no reference to a real event. Synthetic timestamps are relative (for example "T+0h", "T+6h") or clearly synthetic. | PROVISIONAL |
+| D-07 | Map geometry source: a simplified coastline bundled locally. Candidate: Natural Earth (public domain), simplified, or a hand-drawn schematic. Licence to be confirmed before use. | PROPOSED |
+| D-08 | Stack: Vite + React + TypeScript; Vitest for unit tests; Playwright for journey/accessibility checks; no backend. Chosen for an offline-capable, front-end-only demo. | PROPOSED |
+| D-09 | Stage 1 has no AI/LLM calls; narrative text is fixed, labelled templates. | PROPOSED |
+| D-10 | The Hormuz signal is SYNTHETIC (generic chokepoint disruption, no real date or real event). | PROPOSED |
 | D-11 | English only; layout RTL-ready. | PROVISIONAL (from source docs) |
-| D-12 | Repository name/owner and team size: **intentionally unspecified.** No Stage 1 file needs them. Do not invent them in package.json, README, CI or anywhere else; use a neutral package name such as `tigeris-ai-os-stage1`. | PROVISIONAL |
-| D-13 | Demo hosting: **local preview only** (`npm run dev` / `npm run preview` on the developer's machine). No deployment, hosting service or shared link in Stage 1. | PROVISIONAL |
+| D-12 | Repository name/owner and team size. | OPEN |
+| D-13 | Demo hosting (local only vs a shared preview link). | OPEN |
 
 ## B. Client decisions (not blocking Stage 1)
 
@@ -49,11 +49,11 @@ These are recorded, not resolved, unless a decision above resolves them.
 | X-04 | Product name | Foundation treats it as decided but also lists it as open; Consolidated lists variants | "TIGERIS AI OS" in one config value; C-01 open |
 | X-05 | Use cases | Hormuz + resilience + capital vs Consolidated's oil at USD 45 and cross-sector supply shock | D-02 |
 | X-06 | Navigation | Three different module lists (Foundation, PRD, UI brief) | Stage 1 shows only screens it uses; full menu deferred |
-| X-07 | Tech stack | Consolidated (Neo4j, LangGraph, Temporal, Qdrant, OPA, K8s) vs TRD / Implementation Plan / Schema (modular monolith, PostgreSQL) | Stage 1 is front-end only (D-08); backend choice deferred to a later stage |
-| X-08 | Demo hosting | Cloud acceptable (Consolidated) vs local, no egress (Blueprint, TRD) | Stage 1: local preview only (D-13); client hosting decision C-05 still open |
+| X-07 | Tech stack | Consolidated (Neo4j, LangGraph, Temporal, Qdrant, OPA, K8s) vs TRD / Implementation Plan / Schema (modular monolith, PostgreSQL) | Stage 1 is front-end only (D-08); backend choice deferred |
+| X-08 | Demo hosting | Cloud acceptable (Consolidated) vs local, no egress (Blueprint, TRD) | Offline-capable build; D-13 open |
 | X-09 | Map and trucks | PRD FR-29 map MUST incl. land logistics vs Map Spec trucks in Expansion vs Blueprint map unscheduled | D-05, D-06 |
 | X-10 | Industries | Foundation's 8 packs (incl. insurance) vs Target Industries (FO/VC priority, no insurance) | Not needed for Stage 1 |
-| X-11 | Agent count | 9 described / 7 named vs 6 vs 5 agent types | No agents or AI calls in Stage 1 (D-09) |
+| X-11 | Agent count | 9 described / 7 named vs 6 vs 5 agent types | No agents in Stage 1 (D-09) |
 | X-12 | Login | PRD FR-01/02 MUST SSO/MFA vs its own scope cuts | Demo roles only |
 | X-13 | Confidence | No naked percentages (Foundation) vs numeric `confidence` fields (Schema) | Store components; display bands only |
 

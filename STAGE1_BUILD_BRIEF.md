@@ -45,7 +45,7 @@ Trucks and land logistics · live or licensed feeds (AIS, TankerMap, Bloomberg, 
 ### 3.2 Hard rules
 
 1. **No real-world statistics.** Stage 1 contains no real oil-flow, price, traffic or percentage figures. All numbers are SYNTHETIC or ASSUMPTION.
-2. **The Hormuz signal is synthetic.** It is modelled on a generic chokepoint disruption. It is not a real event and has no real event date; timestamps are relative synthetic times such as "T+0h" (D-10). Its UI text says so. A real event window is a client decision (DECISIONS.md C-03).
+2. **The Hormuz signal is synthetic.** It is modelled on a generic chokepoint disruption. It is not a real event and has no real date. Its UI text says so. A real event window is a client decision (DECISIONS.md C-03).
 3. **Lineage or nothing.** If a value lacks lineage, the UI must not display it.
 4. **Labels travel.** Labels appear on cards, charts, the map, lineage panels, the audit log and memory records.
 5. **Synthetic register.** Every fixture file starts with a header comment stating that it is synthetic, what it represents, and its fixture ID. `docs/SYNTHETIC_DATA_REGISTER.md` is created in Step 3 and lists every fixture.
@@ -84,7 +84,7 @@ Institution name: **"Demonstration Institution (synthetic)"**. No real names of 
 | Item | Requirement |
 |---|---|
 | Geography | Strait of Hormuz region only (approximately the Persian Gulf exit into the Gulf of Oman). |
-| Base map | A **polished, simplified Hormuz schematic** drawn for this project as local SVG (D-07). Not traced from any copyrighted or licensed map. No tile server or runtime network call. Label: **ILLUSTRATIVE — schematic, not to scale, not for navigation**. |
+| Base map | Simplified coastline **bundled locally**. No tile server or runtime network call. Geometry source is decision D-07. Base map label: **ILLUSTRATIVE**. |
 | Objects | One illustrative shipping lane (ILLUSTRATIVE). One vessel, **"Synthetic Vessel A"** (SYNTHETIC). One disruption marker (SYNTHETIC). One or two port/terminal nodes with generic names (ILLUSTRATIVE). |
 | Movement | The vessel moves along a SYNTHETIC timestamped track by interpolating between fixture points. When the track ends it stops; it never extrapolates. |
 | Persistent map label | **"SYNTHETIC DEMO MOVEMENT — not live AIS or real vessel data"** is always visible on the map. |
