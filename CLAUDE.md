@@ -30,8 +30,10 @@ Read `docs/STAGE1_BUILD_BRIEF.md` and `docs/DECISIONS.md` before any change.
 
 ## 3. Technical rules
 
-- Stack: use what `docs/DECISIONS.md` records as confirmed. If it is still marked PROPOSED, stop and ask before scaffolding.
-- No backend, database, login provider or network calls in Stage 1. Data lives in typed fixtures behind a service interface (`src/services/`) so it can be replaced later.
+- Stack (D-08, provisional): Vite + React + TypeScript, front end only. Build on CONFIRMED or PROVISIONAL decisions; stop and ask on PROPOSED or OPEN ones.
+- Stage 1 runs as a local preview only (D-13). Do not add deployment or hosting configuration.
+- Do not invent a repository name, owner, organisation or team details (D-12).
+- No backend, database, login provider, external AI calls or network calls in Stage 1. Data lives in typed fixtures behind a service interface (`src/services/`) so it can be replaced later.
 - No external map tiles, CDNs, analytics, fonts or APIs at runtime. Bundle all assets locally. The app must work with the network off.
 - Store design tokens in one place. Do not hard-code colours in components.
 - Layout must be RTL-ready: use logical CSS properties (`margin-inline-start`, not `margin-left`) and avoid direction-specific assumptions. English only for now.
